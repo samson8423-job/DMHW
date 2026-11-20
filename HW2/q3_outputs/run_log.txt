@@ -1,0 +1,221 @@
+LIBSVM 目錄: C:\Users\user\Desktop\DMHW\HW2\libsvm\windows
+[驗證] split.csv 筆數與 combats 相同: 通過
+[驗證] split.csv rowid 與 combats 完全一致: 通過
+[驗證] split.csv 標籤與資料庫一致: 通過
+[驗證] training 40000 筆: 通過
+[驗證] test 10000 筆: 通過
+[驗證] 五折 rowid 兩兩互斥: 通過
+[驗證] 五折對手組合兩兩互斥: 通過
+[驗證] 五折合計涵蓋全部 training: 通過
+[驗證] 每筆 training 恰好屬於一折: 通過
+[驗證] 每折皆有資料: 通過
+
+[每折分布]
+折     總筆數  標籤0筆數  標籤0比例  標籤1筆數  標籤1比例
+-----  ------  ---------  ---------  ---------  ---------
+fold1  8001    4224       52.79%     3777       47.21%
+fold2  8000    4224       52.80%     3776       47.20%
+fold3  8000    4224       52.80%     3776       47.20%
+fold4  8000    4224       52.80%     3776       47.20%
+fold5  7999    4223       52.79%     3776       47.21%
+
+[五折驗證]
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\fit.libsvm
+WARNING: original #nonzeros 206747
+       > new      #nonzeros 209738
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\val.libsvm
+WARNING: original #nonzeros 51734
+       > new      #nonzeros 52480
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 0.5 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA1.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA1.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PA1.txt
+Accuracy = 90.9886% (7280/8001) (classification)
+[驗證] MA1 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB1.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB1.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PB1.txt
+Accuracy = 91.5136% (7322/8001) (classification)
+[驗證] MB1 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 8 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC1.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC1.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PC1.txt
+Accuracy = 91.6135% (7330/8001) (classification)
+[驗證] MC1 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.0078125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD1.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD1.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PD1.txt
+Accuracy = 91.0261% (7283/8001) (classification)
+[驗證] MD1 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME1.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold1\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME1.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PE1.txt
+Accuracy = 91.5886% (7328/8001) (classification)
+[驗證] ME1 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\fit.libsvm
+WARNING: original #nonzeros 206806
+       > new      #nonzeros 209805
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\val.libsvm
+WARNING: original #nonzeros 51675
+       > new      #nonzeros 52413
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 0.5 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA2.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA2.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PA2.txt
+Accuracy = 90.775% (7262/8000) (classification)
+[驗證] MA2 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB2.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB2.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PB2.txt
+Accuracy = 91.15% (7292/8000) (classification)
+[驗證] MB2 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 8 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC2.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC2.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PC2.txt
+Accuracy = 91.25% (7300/8000) (classification)
+[驗證] MC2 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.0078125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD2.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD2.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PD2.txt
+Accuracy = 90.8% (7264/8000) (classification)
+[驗證] MD2 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME2.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold2\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME2.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PE2.txt
+Accuracy = 91.25% (7300/8000) (classification)
+[驗證] ME2 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\fit.libsvm
+WARNING: original #nonzeros 206892
+       > new      #nonzeros 211110
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\val.libsvm
+WARNING: original #nonzeros 51589
+       > new      #nonzeros 52685
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 0.5 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA3.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA3.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PA3.txt
+Accuracy = 90.5875% (7247/8000) (classification)
+[驗證] MA3 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB3.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB3.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PB3.txt
+Accuracy = 90.95% (7276/8000) (classification)
+[驗證] MB3 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 8 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC3.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC3.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PC3.txt
+Accuracy = 90.9625% (7277/8000) (classification)
+[驗證] MC3 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.0078125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD3.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD3.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PD3.txt
+Accuracy = 90.5625% (7245/8000) (classification)
+[驗證] MD3 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME3.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold3\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME3.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PE3.txt
+Accuracy = 91.0625% (7285/8000) (classification)
+[驗證] ME3 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\fit.libsvm
+WARNING: original #nonzeros 206780
+       > new      #nonzeros 210543
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\val.libsvm
+WARNING: original #nonzeros 51701
+       > new      #nonzeros 52655
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 0.5 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA4.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA4.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PA4.txt
+Accuracy = 91.2375% (7299/8000) (classification)
+[驗證] MA4 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB4.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB4.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PB4.txt
+Accuracy = 91.6375% (7331/8000) (classification)
+[驗證] MB4 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 8 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC4.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC4.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PC4.txt
+Accuracy = 91.5875% (7327/8000) (classification)
+[驗證] MC4 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.0078125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD4.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD4.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PD4.txt
+Accuracy = 91.2875% (7303/8000) (classification)
+[驗證] MD4 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME4.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold4\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME4.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PE4.txt
+Accuracy = 91.65% (7332/8000) (classification)
+[驗證] ME4 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\fit.libsvm
+WARNING: original #nonzeros 206699
+       > new      #nonzeros 207669
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\val.libsvm
+WARNING: original #nonzeros 51782
+       > new      #nonzeros 52051
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 0.5 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA5.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MA5.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PA5.txt
+Accuracy = 90.4613% (7236/7999) (classification)
+[驗證] MA5 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB5.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MB5.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PB5.txt
+Accuracy = 91.0739% (7285/7999) (classification)
+[驗證] MB5 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 8 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC5.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MC5.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PC5.txt
+Accuracy = 91.2114% (7296/7999) (classification)
+[驗證] MC5 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.0078125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD5.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\MD5.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PD5.txt
+Accuracy = 90.6113% (7248/7999) (classification)
+[驗證] MD5 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\fit.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME5.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\rounds\fold5\val.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\ME5.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\PE5.txt
+Accuracy = 91.0989% (7287/7999) (classification)
+[驗證] ME5 自算 Accuracy 與 svm-predict 一致: True
+
+[各折逐折結果]
+組別  折  TN    FP   FN   TP    Accuracy  Precision  Recall(TPR)  FPR    TNR     FNR
+----  --  ----  ---  ---  ----  --------  ---------  -----------  -----  ------  ------
+A     1   3830  394  327  3450  90.99%    89.75%     91.34%       9.33%  90.67%  8.66%
+B     1   3842  382  297  3480  91.51%    90.11%     92.14%       9.04%  90.96%  7.86%
+C     1   3846  378  293  3484  91.61%    90.21%     92.24%       8.95%  91.05%  7.76%
+D     1   3830  394  324  3453  91.03%    89.76%     91.42%       9.33%  90.67%  8.58%
+E     1   3842  382  291  3486  91.59%    90.12%     92.30%       9.04%  90.96%  7.70%
+A     2   3852  372  366  3410  90.77%    90.16%     90.31%       8.81%  91.19%  9.69%
+B     2   3862  362  346  3430  91.15%    90.45%     90.84%       8.57%  91.43%  9.16%
+C     2   3866  358  342  3434  91.25%    90.56%     90.94%       8.48%  91.52%  9.06%
+D     2   3855  369  367  3409  90.80%    90.23%     90.28%       8.74%  91.26%  9.72%
+E     2   3866  358  342  3434  91.25%    90.56%     90.94%       8.48%  91.52%  9.06%
+A     3   3829  395  358  3418  90.59%    89.64%     90.52%       9.35%  90.65%  9.48%
+B     3   3847  377  347  3429  90.95%    90.09%     90.81%       8.93%  91.07%  9.19%
+C     3   3848  376  347  3429  90.96%    90.12%     90.81%       8.90%  91.10%  9.19%
+D     3   3828  396  359  3417  90.56%    89.61%     90.49%       9.38%  90.62%  9.51%
+E     3   3850  374  341  3435  91.06%    90.18%     90.97%       8.85%  91.15%  9.03%
+A     4   3870  354  347  3429  91.24%    90.64%     90.81%       8.38%  91.62%  9.19%
+B     4   3885  339  330  3446  91.64%    91.04%     91.26%       8.03%  91.97%  8.74%
+C     4   3880  344  329  3447  91.59%    90.93%     91.29%       8.14%  91.86%  8.71%
+D     4   3875  349  348  3428  91.29%    90.76%     90.78%       8.26%  91.74%  9.22%
+E     4   3880  344  324  3452  91.65%    90.94%     91.42%       8.14%  91.86%  8.58%
+A     5   3848  375  388  3388  90.46%    90.03%     89.72%       8.88%  91.12%  10.28%
+B     5   3867  356  358  3418  91.07%    90.57%     90.52%       8.43%  91.57%  9.48%
+C     5   3867  356  347  3429  91.21%    90.59%     90.81%       8.43%  91.57%  9.19%
+D     5   3852  371  380  3396  90.61%    90.15%     89.94%       8.79%  91.21%  10.06%
+E     5   3863  360  352  3424  91.10%    90.49%     90.68%       8.52%  91.48%  9.32%
+
+[五折彙整]  混淆矩陣為五折加總，指標為五折算術平均
+組別  C    gamma      TN     FP    FN    TP     平均Accuracy  平均Precision  平均Recall(TPR)  平均FPR  平均TNR  平均FNR
+----  ---  ---------  -----  ----  ----  -----  ------------  -------------  ---------------  -------  -------  -------
+A     0.5  0.03125    19229  1890  1786  17095  90.81%        90.05%         90.54%           8.95%    91.05%   9.46%
+B     2    0.03125    19303  1816  1678  17203  91.26%        90.45%         91.11%           8.60%    91.40%   8.89%
+C     8    0.03125    19307  1812  1658  17223  91.32%        90.48%         91.22%           8.58%    91.42%   8.78%
+D     2    0.0078125  19240  1879  1778  17103  90.86%        90.10%         90.58%           8.90%    91.10%   9.42%
+E     2    0.125      19301  1818  1650  17231  91.33%        90.46%         91.26%           8.61%    91.39%   8.74%
+
+[最佳參數] 組別 E (C=2, gamma=0.125), 平均 Accuracy=91.33%
+
+[最終重訓] 使用完整 40,000 筆 training 與最佳參數
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\train.libsvm
+WARNING: original #nonzeros 258481
+       > new      #nonzeros 262218
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\test.libsvm
+WARNING: original #nonzeros 64784
+       > new      #nonzeros 65672
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\train.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\M_final_E.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\test.scaled C:\Users\user\Desktop\DMHW\HW2\q3_outputs\models\M_final_E.model C:\Users\user\Desktop\DMHW\HW2\q3_outputs\predictions\P_final_E.txt
+Accuracy = 90.86% (9086/10000) (classification)
+[驗證] 自算 Accuracy 與 svm-predict 一致: True
+
+[最終 test 結果]
+組別  C  gamma  TN    FP   FN   TP    Accuracy  Precision  Recall(TPR)  FPR    TNR     FNR
+----  -  -----  ----  ---  ---  ----  --------  ---------  -----------  -----  ------  -----
+E     2  0.125  4825  455  459  4261  90.86%    90.35%     90.28%       8.62%  91.38%  9.72%
