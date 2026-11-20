@@ -1,0 +1,74 @@
+LIBSVM 目錄: C:\Users\user\Desktop\DMHW\HW2\libsvm\windows
+
+[切分結果]
+集合      總筆數  標籤0筆數  標籤0比例  標籤1筆數  標籤1比例
+--------  ------  ---------  ---------  ---------  ---------
+全資料    50000   26399      52.80%     23601      47.20%
+training  40000   21119      52.80%     18881      47.20%
+test      10000   5280       52.80%     4720       47.20%
+[驗證] rowid 無交集: 通過
+[驗證] 對手組合無交集: 通過
+[驗證] 合計涵蓋所有對戰: 通過
+[驗證] training 40000 筆: 通過
+[驗證] test 10000 筆: 通過
+
+[LIBSVM 特徵編號]
+編號  特徵
+----  ------------
+1     HP差
+2     Attack差
+3     Defense差
+4     Sp. Atk差
+5     Sp. Def差
+6     Speed差
+7     傳說身分差
+8     雙屬性身分差
+
+[縮放]
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -l -1 -u 1 -s C:\Users\user\Desktop\DMHW\HW2\q2_outputs\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q2_outputs\train.libsvm
+WARNING: original #nonzeros 258481
+       > new      #nonzeros 262218
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-scale.exe -r C:\Users\user\Desktop\DMHW\HW2\q2_outputs\scale_range.txt C:\Users\user\Desktop\DMHW\HW2\q2_outputs\test.libsvm
+WARNING: original #nonzeros 64784
+       > new      #nonzeros 65672
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1
+
+[五組參數訓練與預測]
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 0.5 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q2_outputs\train.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_A.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q2_outputs\test.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_A.model C:\Users\user\Desktop\DMHW\HW2\q2_outputs\predictions\pred_A.txt
+Accuracy = 90.56% (9056/10000) (classification)
+[驗證] 組別 A 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q2_outputs\train.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_B.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q2_outputs\test.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_B.model C:\Users\user\Desktop\DMHW\HW2\q2_outputs\predictions\pred_B.txt
+Accuracy = 90.75% (9075/10000) (classification)
+[驗證] 組別 B 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 8 -g 0.03125 -q C:\Users\user\Desktop\DMHW\HW2\q2_outputs\train.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_C.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q2_outputs\test.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_C.model C:\Users\user\Desktop\DMHW\HW2\q2_outputs\predictions\pred_C.txt
+Accuracy = 90.76% (9076/10000) (classification)
+[驗證] 組別 C 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.0078125 -q C:\Users\user\Desktop\DMHW\HW2\q2_outputs\train.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_D.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q2_outputs\test.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_D.model C:\Users\user\Desktop\DMHW\HW2\q2_outputs\predictions\pred_D.txt
+Accuracy = 90.54% (9054/10000) (classification)
+[驗證] 組別 D 自算 Accuracy 與 svm-predict 一致: True
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -q C:\Users\user\Desktop\DMHW\HW2\q2_outputs\train.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_E.model
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe C:\Users\user\Desktop\DMHW\HW2\q2_outputs\test.scaled C:\Users\user\Desktop\DMHW\HW2\q2_outputs\models\model_E.model C:\Users\user\Desktop\DMHW\HW2\q2_outputs\predictions\pred_E.txt
+Accuracy = 90.86% (9086/10000) (classification)
+[驗證] 組別 E 自算 Accuracy 與 svm-predict 一致: True
+
+[混淆矩陣與指標]  矩陣排列為 [[TN, FP], [FN, TP]]
+組別 A (C=0.5, gamma=0.03125): [[4813, 467], [477, 4243]]
+組別 B (C=2, gamma=0.03125): [[4819, 461], [464, 4256]]
+組別 C (C=8, gamma=0.03125): [[4819, 461], [463, 4257]]
+組別 D (C=2, gamma=0.0078125): [[4815, 465], [481, 4239]]
+組別 E (C=2, gamma=0.125): [[4825, 455], [459, 4261]]
+組別  C    gamma      TN    FP   FN   TP    Accuracy  Precision  Recall(TPR)  FPR    TNR     FNR
+----  ---  ---------  ----  ---  ---  ----  --------  ---------  -----------  -----  ------  ------
+A     0.5  0.03125    4813  467  477  4243  90.56%    90.08%     89.89%       8.84%  91.16%  10.11%
+B     2    0.03125    4819  461  464  4256  90.75%    90.23%     90.17%       8.73%  91.27%  9.83%
+C     8    0.03125    4819  461  463  4257  90.76%    90.23%     90.19%       8.73%  91.27%  9.81%
+D     2    0.0078125  4815  465  481  4239  90.54%    90.11%     89.81%       8.81%  91.19%  10.19%
+E     2    0.125      4825  455  459  4261  90.86%    90.35%     90.28%       8.62%  91.38%  9.72%
+
+[最佳參數]
+最佳組別: E (C=2, gamma=0.125), Accuracy=90.86%, Recall=90.28%, FPR=8.62%
