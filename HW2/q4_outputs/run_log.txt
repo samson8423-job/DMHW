@@ -1,0 +1,25 @@
+LIBSVM 目錄: C:\Users\user\Desktop\DMHW\HW2\libsvm\windows
+[自我測試] 完美排序 AUC = 1.0: 實際 1.0 通過
+[自我測試] 完全反向 AUC = 0.0: 實際 0.0 通過
+[自我測試] 正負類分數全部相同 AUC = 0.5: 實際 0.5 通過
+[參數] Q3 選出組別 E: C=2, gamma=0.125
+[輸入] 沿用 Q3 最終重訓縮放檔: C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final
+[驗證] test.scaled 標籤與 split.csv test 標籤逐行一致: True
+
+[訓練] -b 1 機率模型
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-train.exe -s 0 -t 2 -c 2 -g 0.125 -b 1 -q C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\train.scaled C:\Users\user\Desktop\DMHW\HW2\q4_outputs\models\M_prob_E.model
+
+[預測] svm-predict -b 1
+$ C:\Users\user\Desktop\DMHW\HW2\libsvm\windows\svm-predict.exe -b 1 C:\Users\user\Desktop\DMHW\HW2\q3_outputs\final\test.scaled C:\Users\user\Desktop\DMHW\HW2\q4_outputs\models\M_prob_E.model C:\Users\user\Desktop\DMHW\HW2\q4_outputs\predictions\P_prob_E.txt
+Accuracy = 90.82% (9082/10000) (classification)
+[驗證] 自算 Accuracy 與 svm-predict 一致: True
+
+[ROC] 自行計算
+[驗證] ROC 起點為 (0, 0): 通過
+[驗證] ROC 終點為 (1, 1): 通過
+[驗證] ROC FPR 單調不減: 通過
+[驗證] ROC TPR 單調不減: 通過
+[驗證] 梯形累加 AUC 與配對計數 AUC 一致: True (梯形=0.9260992873651801, 配對=0.9260992873651772)
+測試筆數=10000, 正類=4720, 負類=5280, ROC 點數=9570
+AUC = 0.926099
+[輸出] ROC 圖: C:\Users\user\Desktop\DMHW\HW2\q4_outputs\roc_curve.png (DPI=300)

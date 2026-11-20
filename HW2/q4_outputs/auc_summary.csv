@@ -1,0 +1,2 @@
+group,C,gamma,n_test,n_pos,n_neg,roc_points,auc,auc_rank_check
+E,2,0.125,10000,4720,5280,9570,0.9260992873651801,0.9260992873651772
